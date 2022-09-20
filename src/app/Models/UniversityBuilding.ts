@@ -8,8 +8,7 @@ export class UnviversityBuilding {
         name: string, 
         adress: string, 
         storeysNumber: number, 
-        foundationYear: number) 
-    {
+        foundationYear: number) {
         this.name = name;
         this.adress = adress;
         this.storeysNumber = storeysNumber;

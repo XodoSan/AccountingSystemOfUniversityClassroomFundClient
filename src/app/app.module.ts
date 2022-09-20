@@ -9,13 +9,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DialogRoomComponent } from './Components/Dialogs/dialog-room/dialog-room.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     DialogUniversityBuildingComponent,
-    DialogOptionsComponent
+    DialogOptionsComponent,
+    DialogRoomComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     HttpClientModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   bootstrap: [AppComponent]
 })

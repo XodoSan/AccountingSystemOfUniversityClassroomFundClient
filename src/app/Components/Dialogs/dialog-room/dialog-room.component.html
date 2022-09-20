@@ -1,0 +1,32 @@
+<div>
+    <h2>Enter Room info</h2>
+    <label>Enter a name of room university</label>
+    <input MatInput [(ngModel)]="currentUniversityName">
+    <label>Number</label>
+    <input MatInput placeholder="Enter a number" [(ngModel)]="room.number">
+    <label>Name</label>
+    <input MatInput placeholder="Enter a name" [(ngModel)]="room.name">
+    <label>Purpose</label>
+    <select [(ngModel)]="room.purpose">
+        <option *ngFor="let purpose of purposes" [ngValue]="purpose"> {{purpose}} </option>
+    </select>
+    <label>Room type</label>
+    <select [(ngModel)]="room.roomType">
+        <option *ngFor="let roomType of roomTypes" [ngValue]="roomType"> {{roomType}} </option>
+    </select>
+    <label>Area</label>
+    <input MatInput placeholder="Enter a area of room" [(ngModel)]="room.area">
+    <label>FloorPlan</label>
+    <input MatInput placeholder="Enter a plan of floor" [(ngModel)]="room.floorPlan">
+    <label>Owner</label>
+    <input MatInput placeholder="Enter a name of room subdivision" [(ngModel)]="room.owner.name">
+    <label>Capacity</label>
+    <input MatInput placeholder="Enter a capacity of room" [(ngModel)]="room.capacity">
+    <label>Floor</label>
+    <input MatInput placeholder="Enter a number of floor" [(ngModel)]="room.floor">
+
+    <button mat-button (click)="AddRoomInUniversity(currentUniversityName, room)">Add</button>
+    <button mat-button (click)="UpdateRoomInUniversity(currentUniversityName, room)">Update</button>
+    <button mat-button (click)="DeleteRoom(room.number)">Delete</button>
+    <button mat-button mat-dialog-close>Cancel</button>
+</div>

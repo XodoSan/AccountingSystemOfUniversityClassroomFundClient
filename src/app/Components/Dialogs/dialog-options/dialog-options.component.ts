@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { DialogRoomComponent } from '../dialog-room/dialog-room.component';
 import { DialogUniversityBuildingComponent } from '../dialog-university-building/dialog-university-building.component';
 
 @Component({
@@ -13,5 +14,9 @@ export class DialogOptionsComponent {
 
   public openUniversityDialog() {
     this.dialog.open(DialogUniversityBuildingComponent);
+  }
+
+  public openRoomDialog() {
+    this.dialog.open(DialogRoomComponent);
   }
 }

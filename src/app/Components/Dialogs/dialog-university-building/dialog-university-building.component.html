@@ -1,16 +1,16 @@
 <div>
     <h2>Enter university info</h2>
     <label>Name</label>
-    <input MatInput placeholder="Enter a name" [(ngModel)]="name">
+    <input MatInput placeholder="Enter a name" [(ngModel)]="universityBuilding.name">
     <label>Adress</label>
-    <input MatInput placeholder="Enter a adress" [(ngModel)]="adress">
+    <input MatInput placeholder="Enter a adress" [(ngModel)]="universityBuilding.adress">
     <label>Storeys number</label>
-    <input MatInput placeholder="Enter a number of storeys" [(ngModel)]="storeysNumber">
+    <input MatInput placeholder="Enter a number of storeys" [(ngModel)]="universityBuilding.storeysNumber">
     <label>Foundation year</label>
-    <input MatInput placeholder="Enter a year of foundation" [(ngModel)]="foundationYear">
+    <input MatInput placeholder="Enter a year of foundation" [(ngModel)]="universityBuilding.foundationYear">
 
-    <button mat-button (click)="AddUniversityBuilding(FormModel())">Add</button>
-    <button mat-button (click)="UpdateUniversityBuilding(FormModel())">Update</button>
-    <button mat-button (click)="DeleteUniversityBuilding(this.name)">Delete</button>
+    <button mat-button (click)="AddUniversityBuilding(universityBuilding)">Add</button>
+    <button mat-button (click)="UpdateUniversityBuilding(universityBuilding)">Update</button>
+    <button mat-button (click)="DeleteUniversityBuilding(universityBuilding.name)">Delete</button>
     <button mat-button mat-dialog-close>Cancel</button>
 </div>
