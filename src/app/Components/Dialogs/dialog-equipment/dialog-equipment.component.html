@@ -1,0 +1,32 @@
+<div>
+    <h2>Enter equipment info</h2>
+    <label>Enter number of room</label>
+    <input MatInput [(ngModel)]="roomNumber">
+    <label>Inventory number</label>
+    <input MatInput [(ngModel)]="equipment.inventoryNumber">
+    <label>Serial number</label>
+    <input MatInput placeholder="Enter a serial number" [(ngModel)]="equipment.serialNumber">
+    <label>Name</label>
+    <input MatInput placeholder="Enter a name" [(ngModel)]="equipment.name">
+    <label>Financially responsible person</label>
+    <input MatInput placeholder="Enter id of worker" [(ngModel)]="equipment.financiallyResponsiblePerson.id">
+    <label>Purchase date</label>
+    <input MatInput placeholder="Enter a purchase date of equipment" [(ngModel)]="equipment.purchaseDate">
+    <label>Commissioning date</label>
+    <input MatInput placeholder="Enter a commissioning date of equipment" [(ngModel)]="equipment.commissioningDate">
+    <label>Price</label>
+    <input MatInput placeholder="Enter a price of equipment" [(ngModel)]="equipment.price">
+    <label>Category</label>
+    <input MatInput placeholder="Enter a category name of equipment" [(ngModel)]="equipment.category.name">
+    <label>Instruction</label>
+    <input MatInput placeholder="Enter a instruction of equipment" [(ngModel)]="equipment.whereUsed.instruction">
+    <label>Purpose</label>
+    <select [(ngModel)]="equipment.whereUsed.purpose">
+        <option *ngFor="let purpose of purposes" [ngValue]="purpose"> {{purpose}} </option>
+    </select>
+
+    <button mat-button (click)="AddEquipmentInRoom(roomNumber, equipment)">Add</button>
+    <button mat-button (click)="UpdateEquipmentInRoom(roomNumber, equipment)">Update</button>
+    <button mat-button (click)="DeleteEquipment(roomNumber, equipment.inventoryNumber)">Delete</button>
+    <button mat-button mat-dialog-close>Cancel</button>
+</div>

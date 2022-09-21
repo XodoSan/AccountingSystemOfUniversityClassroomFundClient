@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Purpose } from 'src/app/Enums/Purpose';
+import { RoomType } from 'src/app/Enums/RoomType';
 import { Room } from 'src/app/Models/Room';
 import { Subdivision } from 'src/app/Models/Subdivision';
 import { ClassroomFundService } from 'src/app/Services/ClassroomFundService';
@@ -17,13 +19,13 @@ export class DialogRoomComponent implements OnInit {
   constructor(private _classroomFundService: ClassroomFundService) { }
 
   ngOnInit(): void {
-     this.purposes.push("Educational");
-     this.purposes.push("No_educational");
+     this.purposes.push(Purpose.Educational);
+     this.purposes.push(Purpose.No_educational);
 
-     this.roomTypes.push("Lecture");
-     this.roomTypes.push("For_partical_training");
-     this.roomTypes.push("Gym");
-     this.roomTypes.push("Canteen");
+     this.roomTypes.push(RoomType.Lecture);
+     this.roomTypes.push(RoomType.For_partical_training);
+     this.roomTypes.push(RoomType.Gym);
+     this.roomTypes.push(RoomType.Canteen);
   }
 
   public AddRoomInUniversity(universityName: string, room: Room) {

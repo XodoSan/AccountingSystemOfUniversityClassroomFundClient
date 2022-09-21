@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogRoomComponent } from './Components/Dialogs/dialog-room/dialog-room.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogEquipmentComponent } from './Components/Dialogs/dialog-equipment/dialog-equipment.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MainPageComponent,
     DialogUniversityBuildingComponent,
     DialogOptionsComponent,
-    DialogRoomComponent
+    DialogRoomComponent,
+    DialogEquipmentComponent
   ],
   imports: [
     BrowserModule,
