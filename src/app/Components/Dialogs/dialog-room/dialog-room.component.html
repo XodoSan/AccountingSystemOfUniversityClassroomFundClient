@@ -17,7 +17,7 @@
     <label>Area</label>
     <input MatInput placeholder="Enter a area of room" [(ngModel)]="room.area">
     <label>Floor plan</label>
-    <input MatInput placeholder="Enter a plan of floor" [(ngModel)]="room.floorPlan">
+    <input MatInput type="file" (change)="fileChange($event)" placeholder="Input a plan of floor">
     <label>Owner</label>
     <input MatInput placeholder="Enter a name of room subdivision" [(ngModel)]="room.owner.name">
     <label>Capacity</label>

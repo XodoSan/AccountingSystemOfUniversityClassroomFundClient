@@ -6,7 +6,7 @@ export class Room {
     public number: number;
     public name: string;
     public area: number;
-    public floorPlan: string;
+    public floorPlan: FormData;
     public owner: Subdivision;
     public capacity: number;
     public floor: number;
@@ -17,7 +17,7 @@ export class Room {
         number: number,
         name: string,
         area: number,
-        floorPlan: string,
+        floorPlan: FormData,
         owner: Subdivision,
         capacity: number,
         floor: number

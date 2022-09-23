@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UnviversityBuilding } from "../Models/UniversityBuilding";
 import { firstValueFrom } from "rxjs";
 import { Room } from "../Models/Room";
@@ -32,12 +32,12 @@ export class ClassroomFundService {
     }
 
     public async AddRoom(room: Room) {
-        firstValueFrom(await this._http.post<UnviversityBuilding>
-            (this.constantHost + 'ClassroomFund/add/room/' + this.currentUniversityName, room));
+        firstValueFrom(await this._http.post
+            (this.constantHost + 'ClassroomFund/add/room/' + this.currentUniversityName, room.floorPlan))
     }
 
     public async UpdateRoom(room: Room) {
-        firstValueFrom(await this._http.put<UnviversityBuilding>
+        firstValueFrom(await this._http.put<Room>
             (this.constantHost + 'ClassroomFund/update/room/' + this.currentUniversityName, room));
     }
 
