@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { UnviversityBuilding } from "../Models/UniversityBuilding";
 import { firstValueFrom } from "rxjs";
 import { Room } from "../Models/Room";
@@ -9,7 +9,7 @@ import { Room } from "../Models/Room";
 })
 export class ClassroomFundService {
     public currentUniversityName: string = "";
-    private constantHost: string = "http://localhost:5253/api/";
+    private constantHost: string = "http://localhost:8000/api/";
     private _http: HttpClient;
 
     constructor(http: HttpClient) {
@@ -31,14 +31,14 @@ export class ClassroomFundService {
             (this.constantHost + 'ClassroomFund/delete/university_building/' + universityName));
     }
 
-    public async AddRoom(room: Room) {
+    public async AddRoomByForm(roomForm: FormData) {
         firstValueFrom(await this._http.post
-            (this.constantHost + 'ClassroomFund/add/room/' + this.currentUniversityName, room.floorPlan))
+            (this.constantHost + 'ClassroomFund/add/room/' + this.currentUniversityName, roomForm))
     }
 
-    public async UpdateRoom(room: Room) {
+    public async UpdateRoomByForm(roomForm: FormData) {
         firstValueFrom(await this._http.put<Room>
-            (this.constantHost + 'ClassroomFund/update/room/' + this.currentUniversityName, room));
+            (this.constantHost + 'ClassroomFund/update/room/' + this.currentUniversityName, roomForm));
     }
 
     public async DeleteRoom(roomNumber: number) {

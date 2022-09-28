@@ -1,3 +1,12 @@
-<button mat-dialog-close (click)="openUniversityDialog()" mat-button>Work with university</button>
-<button mat-dialog-close (click)="openRoomDialog()" mat-button>Work with room</button>
-<button mat-dialog-close (click)="openEquipmentDialog()" mat-button>Work with equipment</button>
+<button mat-dialog-close (click)="OpenUniversityDialog()" mat-button>Work with university</button>
+<button mat-dialog-close (click)="OpenRoomDialog()" mat-button>Work with room</button>
+<button mat-dialog-close (click)="OpenEquipmentDialog()" mat-button>Work with equipment</button>
+<button mat-dialog-close (click)="GetMovementHistory()" mat-button>Get movement history</button>
+<button mat-dialog-close (click)="GetChangeWorkerHistory()" mat-button>Get change worker history</button>
+
+<div *ngFor="let movementHistoryItem of movementHistory">
+    {{movementHistoryItem.id}}
+</div>
+<div *ngFor="let changeWorkerHistoryItem of workerChangeHistory">
+    {{changeWorkerHistoryItem.id}}
+</div>

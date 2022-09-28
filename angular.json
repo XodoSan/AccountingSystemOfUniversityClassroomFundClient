@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "C:/Users/Андрей/source/repos/AccountingSystemOfUniversityClassroomFund/AccountingSystemOfUniversityClassroomFundAPI/wwwroot",
+            "outputPath": "dist/accounting-system-of-university-classroom-fund-client",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,6 +63,9 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "project-name:build"
+          },
           "configurations": {
             "production": {
               "browserTarget": "AccountingSystemOfUniversityClassroomFundClient:build:production"

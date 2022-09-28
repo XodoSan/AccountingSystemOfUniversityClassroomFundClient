@@ -15,6 +15,7 @@ export class DialogRoomComponent implements OnInit {
   public roomTypes: string[] = [];
   public room: Room = new Room("", "", 0, "", 0, new FormData, new Subdivision(""), 0, 0);
   public currentUniversityName: string = "";
+  private choosingFile: File = new File([], "");
 
   constructor(private _classroomFundService: ClassroomFundService) { }
 
@@ -30,35 +31,40 @@ export class DialogRoomComponent implements OnInit {
 
   public AddRoomInUniversity(universityName: string, room: Room) {
     this._classroomFundService.currentUniversityName = universityName;
-
-    room.floorPlan.append('Number', room.number.toString());
-    room.floorPlan.append('Name', room.name);
-    room.floorPlan.append('Purpose', room.purpose);
-    room.floorPlan.append('RoomType', room.roomType);
-    room.floorPlan.append('Area', room.area.toString());
-    room.floorPlan.append('Owner.Name', room.owner.name);
-    room.floorPlan.append('Capacity', room.capacity.toString());
-    room.floorPlan.append('Floor', room.floor.toString());
-    this._classroomFundService.AddRoom(room);
+    let sendingFormData: FormData = this.FillingFormData(room);
+    
+    this._classroomFundService.AddRoomByForm(sendingFormData);
   }
 
   public UpdateRoomInUniversity(universityName: string, room: Room) {
     this._classroomFundService.currentUniversityName = universityName;
-    this._classroomFundService.UpdateRoom(room);
+    let sendingFormData: FormData = this.FillingFormData(room);
+
+    this._classroomFundService.UpdateRoomByForm(sendingFormData);
   }
 
   public DeleteRoom(roomNumber: number) {
     this._classroomFundService.DeleteRoom(roomNumber);
   }
 
-  public fileChange(event: any) {
-    let fileList: FileList = event.target.files;
-    if (fileList.length > 0) {
-      let file: File = fileList[0];
-      let formData: FormData = new FormData();
-      formData.append('FloorPlan', file, file.name);
+  public FileChange(event: any) {
+    this.choosingFile = event.target.files[0];
+  }
 
-      this.room.floorPlan = formData;
-    }
+  private FillingFormData(room: Room) : FormData
+  {
+    let formData: FormData = new FormData;
+
+    formData.append('Number', room.number.toString());
+    formData.append('Name', room.name);
+    formData.append('Purpose', room.purpose);
+    formData.append('RoomType', room.roomType);
+    formData.append('Area', room.area.toString());
+    formData.append('FloorPlan', this.choosingFile);
+    formData.append('Owner.Name', room.owner.name);
+    formData.append('Capacity', room.capacity.toString());
+    formData.append('Floor', room.floor.toString());
+
+    return formData;
   }
 }

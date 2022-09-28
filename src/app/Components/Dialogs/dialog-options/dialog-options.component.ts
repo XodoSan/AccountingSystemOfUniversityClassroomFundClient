@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { EquipmentFinanciallyResponsiblePersonChangeHistoryItem } from 'src/app/Models/EquipmentFinanciallyResponsiblePersonChangeHistoryItem';
+import { EquipmentMovementHistoryItem } from 'src/app/Models/EquipmentMovementHistoryItem';
+import { EquipmentService } from 'src/app/Services/EquipmentService';
 import { DialogEquipmentComponent } from '../dialog-equipment/dialog-equipment.component';
 import { DialogRoomComponent } from '../dialog-room/dialog-room.component';
 import { DialogUniversityBuildingComponent } from '../dialog-university-building/dialog-university-building.component';
@@ -10,18 +13,28 @@ import { DialogUniversityBuildingComponent } from '../dialog-university-building
   styleUrls: ['./dialog-options.component.css']
 })
 export class DialogOptionsComponent {
+  workerChangeHistory: EquipmentFinanciallyResponsiblePersonChangeHistoryItem[] = [];
+  movementHistory: EquipmentMovementHistoryItem[] = [];
+  
+  constructor(private dialog: MatDialog, private _equipmentService: EquipmentService) { }
 
-  constructor(private dialog: MatDialog) { }
-
-  public openUniversityDialog() {
+  public OpenUniversityDialog() {
     this.dialog.open(DialogUniversityBuildingComponent);
   }
 
-  public openRoomDialog() {
+  public OpenRoomDialog() {
     this.dialog.open(DialogRoomComponent);
   }
 
-  public openEquipmentDialog() {
+  public OpenEquipmentDialog() {
     this.dialog.open(DialogEquipmentComponent);
+  }
+
+  public async GetMovementHistory() {
+    this.movementHistory = await this._equipmentService.GetMovementHistory();
+  }
+
+  public async GetChangeWorkerHistory() {
+    this.workerChangeHistory = await this._equipmentService.GetChangeWorkerHistory();
   }
 }
