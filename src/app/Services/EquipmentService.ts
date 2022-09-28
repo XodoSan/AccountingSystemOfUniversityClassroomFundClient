@@ -29,7 +29,7 @@ export class EquipmentService {
 
     public async DeleteEquipment(equipmentInventoryNumber: number) {
         firstValueFrom(await this._http.delete<Equipment>
-            (this.constantHost + 'Equipment/' + this.currentRoomNumber + '/delete' + equipmentInventoryNumber));
+            (this.constantHost + 'Equipment/' + this.currentRoomNumber + '/delete/' + equipmentInventoryNumber));
     }
 
     public async GetMovementHistory() {

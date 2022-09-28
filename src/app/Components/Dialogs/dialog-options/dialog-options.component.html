@@ -5,8 +5,18 @@
 <button mat-dialog-close (click)="GetChangeWorkerHistory()" mat-button>Get change worker history</button>
 
 <div *ngFor="let movementHistoryItem of movementHistory">
+    <label>Movement history:</label>
     {{movementHistoryItem.id}}
+    {{movementHistoryItem.movementTime}}
+    {{movementHistoryItem.previousRoomNumber}}
+    {{movementHistoryItem.currentRoomNumber}}
+    {{movementHistoryItem.equipmentInventoryNumber}}
 </div>
 <div *ngFor="let changeWorkerHistoryItem of workerChangeHistory">
+    <label>Change worker history:</label>
     {{changeWorkerHistoryItem.id}}
+    {{changeWorkerHistoryItem.changeTime}}
+    {{changeWorkerHistoryItem.previousFinanciallyResponsiblePersonId}}
+    {{changeWorkerHistoryItem.currentFinanciallyResponsiblePersonId}}
+    {{changeWorkerHistoryItem.equipmentInventoryNumber}}
 </div>
